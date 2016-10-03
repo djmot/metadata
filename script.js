@@ -6,12 +6,14 @@ $(document).ready(function() {
         var files = $("#input-file")[0].files;
         if (!files) {return;}
         if (files.length < 1) {return;}
-        console.log("Sending POST");
-        var result = JSON.stringify({"size":files[0].size});
+        console.log("Sending info");
+        var result = {"size":files[0].size};
         $.post(
-            "https://metadata-djmot.herokuapp.com/",
+            "https://project-djmot.c9users.io/",
             result,
-            function() {console.log("Request succeeded");}
+            function(data) {
+                document.write("<head><style>body {font-family: 'Consolas', monospace}</style></head><body>"+JSON.stringify(data)+"</body>");
+            }
         );
         
     });
