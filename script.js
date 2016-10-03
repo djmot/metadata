@@ -9,7 +9,7 @@ $(document).ready(function() {
         console.log("Sending info");
         var result = {"size":files[0].size};
         $.post(
-            "https://project-djmot.c9users.io/",
+            "https://metadata-djmot.herokuapp.com/",
             result,
             function(data) {
                 document.write("<head><style>body {font-family: 'Consolas', monospace}</style></head><body>"+JSON.stringify(data)+"</body>");
